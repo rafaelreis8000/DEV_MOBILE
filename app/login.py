@@ -26,15 +26,31 @@ def login(page: ft.Page):
         padding=10
     )
 
-    conjunto=ft.Container(
+    btn_4=ft.Container(
+        content=ft.Text("BOTAO 4"),
+        width=100,
+        height=100,
+        bgcolor="#2A383E",
+        padding=10
+    )
+
+    btn_5=ft.Container(
+        content=ft.Text("BOTAO 5"),
+        width=100,
+        height=100,
+        bgcolor="#2A383E",
+        padding=10
+    )
+
+    horizontal=ft.Container(
         content=ft.Row(
-            controls=[btn_1,btn_2]
+            controls=[btn_1,btn_2, btn_3]
         )
     )
 
     tela=ft.Container(
         content=ft.Column(
-            controls=[conjunto, btn_3]
+            controls=[horizontal, btn_4, btn_5]
         )
     )
 
