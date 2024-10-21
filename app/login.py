@@ -2,56 +2,25 @@ import flet as ft
 
 def login(page: ft.Page):
 
-    btn_1=ft.Container(
-        content=ft.Text("BOTAO 1"),
-        width=100,
-        height=100,
-        bgcolor="#2A383E",
-        padding=10
+    logo=ft.Container(
+        alignment=ft.alignment.top_center,
+        content=ft.Image(src="app/assets\logo.png")
     )
 
-    btn_2=ft.Container(
-        content=ft.Text("BOTAO 2"),
-        width=100,
-        height=100,
-        bgcolor="#2A383E",
-        padding=10
-    )
+    inputs=ft.Container(
 
-    btn_3=ft.Container(
-        content=ft.Text("BOTAO 3"),
-        width=100,
-        height=100,
-        bgcolor="#2A383E",
-        padding=10
-    )
-
-    btn_4=ft.Container(
-        content=ft.Text("BOTAO 4"),
-        width=100,
-        height=100,
-        bgcolor="#2A383E",
-        padding=10
-    )
-
-    btn_5=ft.Container(
-        content=ft.Text("BOTAO 5"),
-        width=100,
-        height=100,
-        bgcolor="#2A383E",
-        padding=10
-    )
-
-    horizontal=ft.Container(
-        content=ft.Row(
-            controls=[btn_1,btn_2, btn_3]
-        )
     )
 
     tela=ft.Container(
+        expand=True,
+        bgcolor="#1D3331",
+        alignment=ft.alignment.top_center,
         content=ft.Column(
-            controls=[horizontal, btn_4, btn_5]
-        )
+            controls=[
+                logo,
+                ft.Text("TEST")
+            ]
+        ) 
     )
 
     #manda exibir tudo que estiver no container
