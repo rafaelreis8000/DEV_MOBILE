@@ -2,38 +2,9 @@ import flet as ft
 
 def home(page:ft.Page):
 
-    #botão de Dashboard. Leva o usuário para a tela de dashboard
-    btn_dashboard=ft.GestureDetector(
-        on_tap=lambda _:page.go("/dashboard"),
-        content=ft.Stack(
-            [
-                #define tamanho, largura e cor do botão
-                ft.Container(
-                    width=300,
-                    height=100,
-                    bgcolor="#2A383E",
-                    border=ft.border.all(10,"#222D32"),
-                    border_radius=10,
-                    padding=20
-                ),
-
-                #organiza a imagem e o texto para que fiquem um em cima do outro
-                ft.Column(
-                    [
-                        ft.Image("app/assets\Ícone Dashboard.svg"),
-                        ft.Text("DASHBOARD"),
-                    ],
-                    #centraliza imagem e texto
-                    alignment=ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                )
-            ],
-            #alinha os elementos de imagem e texto no centro do botão
-            alignment=ft.alignment.center
-        )
-    ),
-
+    #botão de dashboard. Leva para a página de mesmo nome
     btn_dash=ft.Container(
+        #define os parâmetros visuais do botão como altura, largura, cor e borda
         width=300,
         height=100,
         bgcolor="#2A383E",
@@ -41,14 +12,17 @@ def home(page:ft.Page):
         border_radius=10,
         padding=20,
         on_click=lambda _:page.go("/dashboard"),
+        #adiciona uma imagem e um texto dentro do botão
         content=ft.Row(
             [
                 ft.Image("app/assets\Ícone Dashboard.svg"),
                 ft.Text("DASHBOARD"),
             ],
+            #centraliza imagem e texto
             alignment=ft.MainAxisAlignment.CENTER,
-            #wrap=True
+            wrap=True
         ),
+        #alinha os elementos de imagem e texto no centro do botão
         alignment=ft.alignment.center
     )
 
@@ -56,12 +30,19 @@ def home(page:ft.Page):
         expand=True,
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
-        controls=[
-            ft.Container(
-                content=ft.Text("DASHBOARD",size=40),
-                alignment=ft.alignment.center
-            ),
-            btn_dash],
+            #delimita a quantidade de colunas que os elementos da tela podem ocupar
+            col={"xs": 12, "sm": 6, "md": 4},
+            controls=[
+                ft.Container(
+                    content=ft.Text("DASHBOARD",size=40),
+                    alignment=ft.alignment.center
+                ),
+
+                ft.Container(
+                    content=btn_dash,
+                    alignment=ft.alignment.center
+                )
+            ]
         )
     )
 
