@@ -3,6 +3,8 @@ import flet as ft
 from app.login import login
 from app.home import home
 from app.dashboard import dashboard
+from app.gestao_agricola import g_agricola
+from app.gestao_insumos import g_insumos
 
 #função que realiza o caminho das telas do sistema
 def registro_rotas(page: ft.Page):
@@ -19,6 +21,12 @@ def registro_rotas(page: ft.Page):
         
         elif page.route == "/dashboard":
             page.views.append(ft.View(route="/dashboard", controls=[dashboard(page)]))
+
+        elif page.route == "/g_agricola":
+            page.views.append(ft.View(route="/g_agricola", controls=[g_agricola(page)]))
+
+        elif page.route == "/g_insumos":
+            page.views.append(ft.View(route="/g_insumos", controls=[g_insumos(page)]))
 
         page.update()
 
