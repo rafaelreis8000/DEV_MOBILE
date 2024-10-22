@@ -5,6 +5,8 @@ from app.home import home
 from app.dashboard import dashboard
 from app.gestao_agricola import g_agricola
 from app.gestao_insumos import g_insumos
+from app.vendas import vendas
+from app.relatorios import relatorios
 
 #função que realiza o caminho das telas do sistema
 def registro_rotas(page: ft.Page):
@@ -27,6 +29,12 @@ def registro_rotas(page: ft.Page):
 
         elif page.route == "/g_insumos":
             page.views.append(ft.View(route="/g_insumos", controls=[g_insumos(page)]))
+
+        elif page.route == "/vendas":
+            page.views.append(ft.View(route="/vendas", controls=[vendas(page)]))
+
+        elif page.route == "/relatorios":
+            page.views.append(ft.View(route="/relatorios", controls=[relatorios(page)]))
 
         page.update()
 
