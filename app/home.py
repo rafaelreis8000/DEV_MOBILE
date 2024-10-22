@@ -26,6 +26,45 @@ def home(page:ft.Page):
         alignment=ft.alignment.center
     )
 
+    btn_gestao_agricola=ft.Container(
+        width=150,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        on_click=lambda _:page.go("/g_agricola"),
+        content=ft.Column(
+            [
+                ft.Image("app/assets\Ícone Plantinha.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
+                ft.Text("Gestão Agrícola",size=10,text_align=ft.TextAlign.CENTER)
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,  # Centraliza os itens dentro da coluna
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,  # Centraliza na horizontal
+            wrap=True
+        ),
+        alignment=ft.alignment.center
+    )
+
+    btn_gestao_insumos=ft.Container(
+        width=150,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        content=ft.Column(
+            [
+                ft.Image("app/assets\Ícone Trator.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
+                ft.Text("Gestão Insumos",size=10,text_align=ft.TextAlign.CENTER)
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            wrap=True
+        ),
+        alignment=ft.alignment.center
+    )
+
+    ###############################################################################
+
     tela=ft.Container(
         expand=True,
         bgcolor="#1D3331",
@@ -41,8 +80,21 @@ def home(page:ft.Page):
                 ft.Container(
                     content=btn_dash,
                     alignment=ft.alignment.center
+                ),
+
+                ft.Column(
+                    col=6,    
+                    controls=[btn_gestao_agricola],
+                    alignment=ft.MainAxisAlignment.CENTER
+                ),
+
+                ft.Column(
+                    col=6,
+                    controls=[btn_gestao_insumos],
+                    alignment=ft.MainAxisAlignment.CENTER
                 )
-            ]
+            ],
+            alignment=ft.MainAxisAlignment.SPACE_EVENLY
         )
     )
 
