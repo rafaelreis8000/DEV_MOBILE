@@ -51,6 +51,7 @@ def home(page:ft.Page):
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
         border_radius=10,
+        on_click=lambda _:page.go("/g_insumos"),
         content=ft.Column(
             [
                 ft.Image("app/assets\Ícone Trator.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
@@ -82,19 +83,21 @@ def home(page:ft.Page):
                     alignment=ft.alignment.center
                 ),
 
-                ft.Column(
-                    col=6,    
-                    controls=[btn_gestao_agricola],
-                    alignment=ft.MainAxisAlignment.CENTER
-                ),
-
-                ft.Column(
-                    col=6,
-                    controls=[btn_gestao_insumos],
-                    alignment=ft.MainAxisAlignment.CENTER
+                #container da primeira linha de botões(gestão agrícola e de insumos)
+                ft.Container(
+                    content=ft.Row(
+                        [
+                            btn_gestao_agricola,
+                            btn_gestao_insumos
+                        ],
+                        #alinha os dois botões para que fiquem ao centro da tela, mesmo redimensionando a janela
+                        alignment=ft.MainAxisAlignment.CENTER
+                    ),
+                    alignment=ft.alignment.center,
+                    margin=(35)
                 )
             ],
-            alignment=ft.MainAxisAlignment.SPACE_EVENLY
+            alignment=ft.MainAxisAlignment.CENTER,
         )
     )
 
