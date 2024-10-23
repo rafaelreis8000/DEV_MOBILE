@@ -5,7 +5,7 @@ def home(page:ft.Page):
     #botão de dashboard. Leva para a página de mesmo nome
     btn_dash=ft.Container(
         #define os parâmetros visuais do botão como altura, largura, cor e borda
-        width=300,
+        width=310,
         height=100,
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
@@ -101,9 +101,13 @@ def home(page:ft.Page):
         ),
         alignment=ft.alignment.center
     )
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     btn_sair=ft.Container(
-        width=300,
+        width=310,
         height=100,
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
