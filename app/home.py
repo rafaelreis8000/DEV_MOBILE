@@ -101,11 +101,7 @@ def home(page:ft.Page):
         ),
         alignment=ft.alignment.center
     )
-<<<<<<< Updated upstream
-
-=======
     
->>>>>>> Stashed changes
     btn_sair=ft.Container(
         width=310,
         height=100,
