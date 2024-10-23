@@ -102,6 +102,43 @@ def home(page:ft.Page):
         alignment=ft.alignment.center
     )
 
+    #pop-up de confirmação
+    def show_confirm_dialog(e):
+        confirm_dialog=ft.AlertDialog(
+            title=("SAIR DO SISTEMA"),
+            content=ft.Text("VocÊ deseja sair do sistema?"),
+            actions=[
+                ft.TextButton("NÃO",on_click=lambda e: nao_fechar(e)),
+                ft.TextButton("SIM",on_click=lambda e: fechar(e))
+            ]
+        )
+
+    def nao_fechar(e):
+        page.dialog.open=False
+        page.update()
+
+    def fechar(e):
+        page.window.close(e)
+
+    btn_sair=ft.Container(
+        width=300,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        on_click=show_confirm_dialog,
+        content=ft.Column(
+            [
+                ft.Image("app/assets\Ícone Sair.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
+                ft.Text("Sair",size=10,text_align=ft.TextAlign.CENTER)
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            wrap=True
+        ),
+        alignment=ft.alignment.center
+    )
+
     ###############################################################################
 
     tela=ft.Container(
@@ -141,6 +178,11 @@ def home(page:ft.Page):
                         ],
                         alignment=ft.MainAxisAlignment.CENTER
                     )
+                ),
+
+                ft.Container(
+                    content=btn_sair,
+                    alignment=ft.alignment.center
                 )
             ],
             alignment=ft.MainAxisAlignment.CENTER,
