@@ -5,7 +5,7 @@ def home(page:ft.Page):
     #botão de dashboard. Leva para a página de mesmo nome
     btn_dash=ft.Container(
         #define os parâmetros visuais do botão como altura, largura, cor e borda
-        width=300,
+        width=310,
         height=100,
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
@@ -64,6 +64,62 @@ def home(page:ft.Page):
         alignment=ft.alignment.center
     )
 
+    btn_vendas=ft.Container(
+        width=150,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        on_click=lambda _:page.go("/vendas"),
+        content=ft.Column(
+            [
+                ft.Image("app/assets\Ícone Financeiro.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
+                ft.Text("Vendas",size=10,text_align=ft.TextAlign.CENTER)
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            wrap=True
+        ),
+        alignment=ft.alignment.center
+    )
+
+    btn_relatorios=ft.Container(
+        width=150,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        on_click=lambda _:page.go("/relatorios"),
+        content=ft.Column(
+            [
+                ft.Image("app/assets\Ícone Prancheta.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
+                ft.Text("Relatórios",size=10,text_align=ft.TextAlign.CENTER)
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            wrap=True
+        ),
+        alignment=ft.alignment.center
+    )
+    
+    btn_sair=ft.Container(
+        width=310,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        content=ft.Column(
+            [
+                ft.Image("app/assets\Ícone Sair.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
+                ft.Text("Logout",size=10,text_align=ft.TextAlign.CENTER)
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            wrap=True
+        ),
+        alignment=ft.alignment.center
+    )
+
     ###############################################################################
 
     tela=ft.Container(
@@ -92,9 +148,22 @@ def home(page:ft.Page):
                         ],
                         #alinha os dois botões para que fiquem ao centro da tela, mesmo redimensionando a janela
                         alignment=ft.MainAxisAlignment.CENTER
-                    ),
-                    alignment=ft.alignment.center,
-                    margin=(35)
+                    )
+                ),
+
+                ft.Container(
+                    content=ft.Row(
+                        [
+                            btn_vendas,
+                            btn_relatorios
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    )
+                ),
+
+                ft.Container(
+                    content=btn_sair,
+                    alignment=ft.alignment.center
                 )
             ],
             alignment=ft.MainAxisAlignment.CENTER,

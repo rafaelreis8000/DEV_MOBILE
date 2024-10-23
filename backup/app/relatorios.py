@@ -1,6 +1,6 @@
 import flet as ft
 
-def g_agricola(page:ft.Page):
+def relatorios(page:ft.Page):
 
     icone_retornar=ft.Container(
         on_click=lambda _:page.go("/home"),
@@ -11,10 +11,10 @@ def g_agricola(page:ft.Page):
         )
     )
 
-    titulo_gestao_agricola=ft.Container(
+    titulo_relatorios=ft.Container(
         alignment=ft.alignment.center,
         expand=True,
-        content=ft.Text("GESTÃO AGRÍCOLA",size=25)
+        content=ft.Text("RELATÓRIOS",size=25)
     )
 
     appbar=ft.Container(
@@ -25,7 +25,7 @@ def g_agricola(page:ft.Page):
         content=ft.Row(
             [
                 icone_retornar,
-                titulo_gestao_agricola
+                titulo_relatorios
             ],
         )
     )
