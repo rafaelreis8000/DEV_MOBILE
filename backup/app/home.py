@@ -108,6 +108,7 @@ def home(page:ft.Page):
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
         border_radius=10,
+        on_click=lambda _:page.go("/"),
         content=ft.Column(
             [
                 ft.Image("app/assets\Ícone Sair.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
