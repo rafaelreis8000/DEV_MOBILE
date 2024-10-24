@@ -20,7 +20,6 @@ def home(page:ft.Page):
             ],
             #centraliza imagem e texto
             alignment=ft.MainAxisAlignment.CENTER,
-            wrap=True
         ),
         #alinha os elementos de imagem e texto no centro do botão
         alignment=ft.alignment.center
@@ -40,7 +39,6 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,  # Centraliza os itens dentro da coluna
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,  # Centraliza na horizontal
-            wrap=True
         ),
         alignment=ft.alignment.center
     )
@@ -59,7 +57,6 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            wrap=True
         ),
         alignment=ft.alignment.center
     )
@@ -78,7 +75,6 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            wrap=True
         ),
         alignment=ft.alignment.center
     )
@@ -97,7 +93,6 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            wrap=True
         ),
         alignment=ft.alignment.center
     )
@@ -116,7 +111,6 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            wrap=True
         ),
         alignment=ft.alignment.center
     )
