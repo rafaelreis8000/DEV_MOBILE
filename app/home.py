@@ -2,6 +2,8 @@ import flet as ft
 
 def home(page:ft.Page):
 
+
+    #Pop-up de alerta. Ao clicar em fazer logoff, uma confirmação é chamada
     alerta_logoff = ft.AlertDialog(
         modal=True,
         title=ft.Text("CONFIRMAR LOGOFF"),

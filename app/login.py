@@ -29,6 +29,9 @@ def login(page: ft.Page):
         content=ft.TextButton("LOGIN",on_click=lambda _:page.go("/home")),
     )
 
+    ###############################################################################
+    ###############################################################################
+
     tela=ft.Container(
         expand=True,
         bgcolor="#1D3331",
