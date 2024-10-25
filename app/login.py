@@ -16,7 +16,7 @@ def login(page: ft.Page):
             controls=[
                 ft.Text("FAÇA SEU LOGIN", size=20),
                 ft.TextField(label="Insira seu E-mail: "),
-                ft.TextField(label="Insira sua Senha: ")
+                ft.TextField(label="Insira sua Senha: ",password=True)
             ],
         ),
         alignment=ft.alignment.center
