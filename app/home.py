@@ -2,6 +2,19 @@ import flet as ft
 
 def home(page:ft.Page):
 
+    alerta_logoff = ft.AlertDialog(
+        modal=True,
+        title=ft.Text("CONFIRMAR LOGOFF"),
+        content=ft.Text("Você realmente deseja fazer Logoff do aplicativo?"),
+        actions=[
+            ft.TextButton("Sim", on_click=lambda _:page.go("/")),
+            ft.TextButton("Não", on_click=lambda e:page.close(alerta_logoff)),
+        ]
+    )
+
+    ###############################################################################
+    ###############################################################################
+
     #botão de dashboard. Leva para a página de mesmo nome
     btn_dash=ft.Container(
         #define os parâmetros visuais do botão como altura, largura, cor e borda
@@ -103,7 +116,7 @@ def home(page:ft.Page):
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
         border_radius=10,
-        on_click=lambda _:page.go("/"),
+        on_click=lambda e:page.open(alerta_logoff),
         content=ft.Column(
             [
                 ft.Image("app/assets\Ícone Sair.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
@@ -115,6 +128,7 @@ def home(page:ft.Page):
         alignment=ft.alignment.center
     )
 
+    ###############################################################################
     ###############################################################################
 
     tela=ft.Container(
