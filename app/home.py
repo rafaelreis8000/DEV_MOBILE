@@ -6,6 +6,7 @@ def home(page:ft.Page):
     #Pop-up de alerta. Ao clicar em fazer logoff, uma confirmação é chamada
     alerta_logoff = ft.AlertDialog(
         modal=True,
+        bgcolor="#2A383E",
         title=ft.Text("CONFIRMAR LOGOFF"),
         content=ft.Text("Você realmente deseja fazer Logoff do aplicativo?"),
         actions=[
@@ -138,7 +139,7 @@ def home(page:ft.Page):
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
             #delimita a quantidade de colunas que os elementos da tela podem ocupar
-            col={"xs": 12, "sm": 6, "md": 4},
+            col={"xs":12,"sm":6,"md":4},
             controls=[
                 ft.Container(
                     content=ft.Text("DASHBOARD",size=40),
@@ -176,8 +177,7 @@ def home(page:ft.Page):
                     content=btn_sair,
                     alignment=ft.alignment.center
                 )
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
+            ]
         )
     )
 

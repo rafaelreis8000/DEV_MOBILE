@@ -11,7 +11,7 @@ def login(page: ft.Page):
     #inputs do usuario para completar seu cadastro
     info_usuario=ft.Container(
         #alignment=ft.alignment.center,
-        padding= 20,
+        padding=20,
         content=ft.Column(
             controls=[
                 ft.Text("FAÇA SEU LOGIN", size=20),
@@ -36,7 +36,7 @@ def login(page: ft.Page):
         expand=True,
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
-            col={"xs": 12, "sm": 6, "md": 4},
+            col={"xs":12,"sm":6,"md":4},
             controls=[
                 logo,
                 info_usuario,
