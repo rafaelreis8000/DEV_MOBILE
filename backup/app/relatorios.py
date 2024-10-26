@@ -30,11 +30,14 @@ def relatorios(page:ft.Page):
         )
     )
 
+    ###############################################################################
+    ###############################################################################
+
     tela=ft.Container(
         expand=True,
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
-            col={"xs": 12, "sm": 6, "md": 4},
+            col={"xs":12,"sm":6,"md":4},
             controls=[appbar]
         )
     )

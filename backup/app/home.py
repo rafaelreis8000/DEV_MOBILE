@@ -2,6 +2,22 @@ import flet as ft
 
 def home(page:ft.Page):
 
+
+    #Pop-up de alerta. Ao clicar em fazer logoff, uma confirmação é chamada
+    alerta_logoff = ft.AlertDialog(
+        modal=True,
+        bgcolor="#2A383E",
+        title=ft.Text("CONFIRMAR LOGOFF"),
+        content=ft.Text("Você realmente deseja fazer Logoff do aplicativo?"),
+        actions=[
+            ft.TextButton("Sim", on_click=lambda _:page.go("/")),
+            ft.TextButton("Não", on_click=lambda e:page.close(alerta_logoff)),
+        ]
+    )
+
+    ###############################################################################
+    ###############################################################################
+
     #botão de dashboard. Leva para a página de mesmo nome
     btn_dash=ft.Container(
         #define os parâmetros visuais do botão como altura, largura, cor e borda
@@ -103,7 +119,7 @@ def home(page:ft.Page):
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
         border_radius=10,
-        on_click=lambda _:page.go("/"),
+        on_click=lambda e:page.open(alerta_logoff),
         content=ft.Column(
             [
                 ft.Image("app/assets\Ícone Sair.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
@@ -116,13 +132,14 @@ def home(page:ft.Page):
     )
 
     ###############################################################################
+    ###############################################################################
 
     tela=ft.Container(
         expand=True,
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
             #delimita a quantidade de colunas que os elementos da tela podem ocupar
-            col={"xs": 12, "sm": 6, "md": 4},
+            col={"xs":12,"sm":6,"md":4},
             controls=[
                 ft.Container(
                     content=ft.Text("DASHBOARD",size=40),
@@ -160,8 +177,7 @@ def home(page:ft.Page):
                     content=btn_sair,
                     alignment=ft.alignment.center
                 )
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
+            ]
         )
     )
 
