@@ -5,19 +5,18 @@ def login(page: ft.Page):
     #logo do projeto
     logo=ft.Container(
         alignment=ft.alignment.top_center,
-        content=ft.Image(src="app/assets\logo.png")
+        content=ft.Image("app/assets\logo.png")
     )
 
     #inputs do usuario para completar seu cadastro
     info_usuario=ft.Container(
-        #alignment=ft.alignment.center,
         padding=20,
         content=ft.Column(
             controls=[
                 ft.Text("FAÇA SEU LOGIN", size=20),
                 ft.TextField(label="Insira seu E-mail: "),
                 ft.TextField(label="Insira sua Senha: ",password=True)
-            ],
+            ]
         ),
         alignment=ft.alignment.center
     )

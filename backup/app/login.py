@@ -5,7 +5,7 @@ def login(page: ft.Page):
     #logo do projeto
     logo=ft.Container(
         alignment=ft.alignment.top_center,
-        content=ft.Image(src="app/assets\logo.png")
+        content=ft.Image("app/assets\logo.png")
     )
 
     #inputs do usuario para completar seu cadastro
