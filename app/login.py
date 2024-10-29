@@ -1,14 +1,40 @@
 import flet as ft
-import requests
-import jwt
+import requests #requisições do sistema
+import jwt #biblioteca de json web token, utilizado para validação de usuário
+
+    ###############################################################################
+    ###############################################################################
 
 def login(page: ft.Page):
 
     #importa a API contendo a lógica de autenticação de usuário
     API="https://api-pim.onrender.com"
-    #chave que decodifica os tokens gerados pela API
-    KEY="0d8689404a2c83325a0353496caafcdfa01abd76f4511037bad2a66ed3dd6050"
 
+    #mensagem de aviso que aparece caso ocorra algum erro na autenticação de usuário
+    def snack_erro_login(e):
+        page.snack_bar=ft.SnackBar(
+            ft.Text(
+                "Verifique suas informações de login e tente novamente!",
+                text_align=ft.TextAlign.CENTER
+            ),
+            bgcolor="#D9D9D9"
+        )
+        page.snack_bar.open=True
+        page.update()
+
+    #erro de comunicação com a API
+    def snack_erro_API(e):
+        page.snack_bar=ft.SnackBar(
+            ft.Text(
+                "Não foi possível se conectar com o servidor!",
+                text_align=ft.TextAlign.CENTER
+            ),
+            bgcolor="#D9D9D9"
+        )
+        page.snack_bar.open=True
+        page.update()
+    
+    #função que realiza a validação de email e senha do usuário
     def autenticar_usuario(e):
         #obtém o email e senha do usuário
         email=input_email.value
@@ -27,24 +53,15 @@ def login(page: ft.Page):
 
             # Verifica se o status da resposta é 200 e se o token foi recebido
             if response.status_code==200 and"token" in response_data:
-                token=response_data["token"]
-                
-                # Decodificar o token JWT
-                try:
-                    decoded_data=jwt.decode(token,KEY,algorithms=["HS256"])
-                    output_text.value=f"Token decodificado:{decoded_data}"
-                except jwt.ExpiredSignatureError:
-                    output_text.value="Erro: o token expirou."
-                except jwt.InvalidTokenError:
-                    output_text.value="Erro: token inválido."
 
                 #se a autenticação estiver correta, leva o usuário à tela home
                 page.go("/home")
             else:
-                output_text.value=f"Erro de autenticação. Verifique suas credenciais!"
+                snack_erro_login(e)
         
         except requests.exceptions.RequestException as ex:
-            output_text.value=f"Erro ao conectar com a API: {ex}"
+            #caso não seja possível abrir a API, esse erro será exibido
+            snack_erro_API(e)
 
         #atualiza a página para emitir mensagens de erro
         page.update()
@@ -86,7 +103,6 @@ def login(page: ft.Page):
                 input_email,
                 input_senha,
                 btn_login,
-                output_text
             ]
         ) 
     )
