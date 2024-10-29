@@ -14,7 +14,7 @@ def vendas(page:ft.Page):
     titulo_vendas=ft.Container(
         alignment=ft.alignment.center,
         expand=True,
-        content=ft.Text("RELATÓRIOS",size=25)
+        content=ft.Text("VENDAS",size=25)
     )
 
     appbar=ft.Container(

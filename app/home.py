@@ -7,7 +7,7 @@ def home(page:ft.Page):
     alerta_logoff = ft.AlertDialog(
         modal=True,
         bgcolor="#2A383E",
-        title=ft.Text("CONFIRMAR LOGOFF"),
+        title=ft.Text("CONFIRMAR LOGOUT"),
         content=ft.Text("Você realmente deseja fazer Logoff do aplicativo?"),
         actions=[
             ft.TextButton("Sim", on_click=lambda _:page.go("/")),
@@ -142,7 +142,7 @@ def home(page:ft.Page):
             col={"xs":12,"sm":6,"md":4},
             controls=[
                 ft.Container(
-                    content=ft.Text("DASHBOARD",size=40),
+                    content=ft.Text("HOME",size=40),
                     alignment=ft.alignment.center
                 ),
 
