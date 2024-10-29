@@ -41,7 +41,7 @@ def login(page: ft.Page):
                 #se a autenticação estiver correta, leva o usuário à tela home
                 page.go("/home")
             else:
-                output_text.value=f"Erro de autenticação: verifique suas credenciais. {response_data}"
+                output_text.value=f"Erro de autenticação. Verifique suas credenciais!"
         
         except requests.exceptions.RequestException as ex:
             output_text.value=f"Erro ao conectar com a API: {ex}"
