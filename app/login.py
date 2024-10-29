@@ -1,6 +1,5 @@
 import flet as ft
 import requests #requisições do sistema
-import jwt #biblioteca de json web token, utilizado para validação de usuário
 
     ###############################################################################
     ###############################################################################
@@ -17,7 +16,7 @@ def login(page: ft.Page):
                 "Verifique suas informações de login e tente novamente!",
                 text_align=ft.TextAlign.CENTER
             ),
-            bgcolor="#D9D9D9"
+            bgcolor="#DA4E49"
         )
         page.snack_bar.open=True
         page.update()
@@ -29,7 +28,7 @@ def login(page: ft.Page):
                 "Não foi possível se conectar com o servidor!",
                 text_align=ft.TextAlign.CENTER
             ),
-            bgcolor="#D9D9D9"
+            bgcolor="#DA4E49"
         )
         page.snack_bar.open=True
         page.update()
@@ -86,9 +85,6 @@ def login(page: ft.Page):
         padding=ft.Padding(left=20,right=20,bottom=20,top=0),
         content=ft.TextButton("LOGIN",on_click=autenticar_usuario),
     )
-
-    #retorna informações de login
-    output_text=ft.Text("")
 
     ###############################################################################
     ###############################################################################
