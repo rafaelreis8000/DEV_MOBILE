@@ -4,14 +4,14 @@ def home(page:ft.Page):
 
 
     #Pop-up de alerta. Ao clicar em fazer logoff, uma confirmação é chamada
-    alerta_logoff = ft.AlertDialog(
+    alerta_logout=ft.AlertDialog(
         modal=True,
         bgcolor="#2A383E",
         title=ft.Text("CONFIRMAR LOGOUT"),
         content=ft.Text("Você realmente deseja fazer Logoff do aplicativo?"),
         actions=[
             ft.TextButton("Sim", on_click=lambda _:page.go("/")),
-            ft.TextButton("Não", on_click=lambda e:page.close(alerta_logoff)),
+            ft.TextButton("Não", on_click=lambda e:page.close(alerta_logout)),
         ]
     )
 
@@ -36,9 +36,7 @@ def home(page:ft.Page):
             ],
             #centraliza imagem e texto
             alignment=ft.MainAxisAlignment.CENTER,
-        ),
-        #alinha os elementos de imagem e texto no centro do botão
-        alignment=ft.alignment.center
+        )
     )
 
     btn_gestao_agricola=ft.Container(
@@ -55,8 +53,7 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,  # Centraliza os itens dentro da coluna
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,  # Centraliza na horizontal
-        ),
-        alignment=ft.alignment.center
+        )
     )
 
     btn_gestao_insumos=ft.Container(
@@ -73,8 +70,7 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        ),
-        alignment=ft.alignment.center
+        )
     )
 
     btn_vendas=ft.Container(
@@ -91,8 +87,7 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        ),
-        alignment=ft.alignment.center
+        )
     )
 
     btn_relatorios=ft.Container(
@@ -109,17 +104,16 @@ def home(page:ft.Page):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        ),
-        alignment=ft.alignment.center
+        )
     )
     
-    btn_sair=ft.Container(
+    btn_logout=ft.Container(
         width=310,
         height=100,
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
         border_radius=10,
-        on_click=lambda e:page.open(alerta_logoff),
+        on_click=lambda e:page.open(alerta_logout),
         content=ft.Column(
             [
                 ft.Image("app/assets\Ícone Sair.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
@@ -174,7 +168,7 @@ def home(page:ft.Page):
                 ),
 
                 ft.Container(
-                    content=btn_sair,
+                    content=btn_logout,
                     alignment=ft.alignment.center
                 )
             ]

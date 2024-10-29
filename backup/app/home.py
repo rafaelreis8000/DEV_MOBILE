@@ -4,7 +4,7 @@ def home(page:ft.Page):
 
 
     #Pop-up de alerta. Ao clicar em fazer logoff, uma confirmação é chamada
-    alerta_logoff = ft.AlertDialog(
+    alerta_logoff=ft.AlertDialog(
         modal=True,
         bgcolor="#2A383E",
         title=ft.Text("CONFIRMAR LOGOFF"),

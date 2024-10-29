@@ -51,12 +51,27 @@ def login(page: ft.Page):
     #logo do projeto
     logo=ft.Container(
         alignment=ft.alignment.top_center,
-        content=ft.Image(src="app/assets\logo.png")
+        content=ft.Image("app/assets\logo.png")
     )
 
+<<<<<<< HEAD
     #informações que o usuário escreve no teclado
     email=ft.TextField(label="Insira seu E-mail: ")
     senha=ft.TextField(label="Insira sua Senha: ",password=True)
+=======
+    #inputs do usuario para completar seu cadastro
+    info_usuario=ft.Container(
+        padding=20,
+        content=ft.Column(
+            controls=[
+                ft.Text("FAÇA SEU LOGIN", size=20),
+                ft.TextField(label="Insira seu E-mail: "),
+                ft.TextField(label="Insira sua Senha: ",password=True)
+            ]
+        ),
+        alignment=ft.alignment.center
+    )
+>>>>>>> 60e0ad422932068cf1164e4f6d40256d6b627f1d
 
     #ao clicar no botão, ele tenta a autenticação na API
     btn_login=ft.Container(
