@@ -11,8 +11,8 @@ def login(page: ft.Page):
 
     def autenticar_usuario(e):
         #obtém o email e senha do usuário
-        email=email.value
-        senha=senha.value 
+        email=input_email.value
+        senha=input_senha.value 
 
         #parâmetro de requisição da API
         payload={
@@ -38,12 +38,16 @@ def login(page: ft.Page):
                 except jwt.InvalidTokenError:
                     output_text.value="Erro: token inválido."
 
+                #se a autenticação estiver correta, leva o usuário à tela home
                 page.go("/home")
             else:
-                output_text.value=f"Erro de autenticação: verifique suas credenciais.{response_data}"
+                output_text.value=f"Erro de autenticação: verifique suas credenciais. {response_data}"
         
         except requests.exceptions.RequestException as ex:
             output_text.value=f"Erro ao conectar com a API: {ex}"
+
+        #atualiza a página para emitir mensagens de erro
+        page.update()
 
     ###############################################################################
     ###############################################################################
@@ -54,24 +58,10 @@ def login(page: ft.Page):
         content=ft.Image("app/assets\logo.png")
     )
 
-<<<<<<< HEAD
     #informações que o usuário escreve no teclado
-    email=ft.TextField(label="Insira seu E-mail: ")
-    senha=ft.TextField(label="Insira sua Senha: ",password=True)
-=======
+    input_email=ft.TextField(label="Insira seu E-mail: ")
+    input_senha=ft.TextField(label="Insira sua Senha: ",password=True)
     #inputs do usuario para completar seu cadastro
-    info_usuario=ft.Container(
-        padding=20,
-        content=ft.Column(
-            controls=[
-                ft.Text("FAÇA SEU LOGIN", size=20),
-                ft.TextField(label="Insira seu E-mail: "),
-                ft.TextField(label="Insira sua Senha: ",password=True)
-            ]
-        ),
-        alignment=ft.alignment.center
-    )
->>>>>>> 60e0ad422932068cf1164e4f6d40256d6b627f1d
 
     #ao clicar no botão, ele tenta a autenticação na API
     btn_login=ft.Container(
@@ -81,7 +71,7 @@ def login(page: ft.Page):
     )
 
     #retorna informações de login
-    output_text=ft.Text()
+    output_text=ft.Text("")
 
     ###############################################################################
     ###############################################################################
@@ -93,8 +83,8 @@ def login(page: ft.Page):
             col={"xs":12,"sm":6,"md":4},
             controls=[
                 logo,
-                email,
-                senha,
+                input_email,
+                input_senha,
                 btn_login,
                 output_text
             ]
