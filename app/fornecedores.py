@@ -1,9 +1,9 @@
 import flet as ft
 
-def vendas(page:ft.Page):
+def fornecedores(page:ft.Page):
 
     icone_retornar=ft.Container(
-        on_click=lambda _:page.go("/home"),
+        on_click=lambda _:page.go("/g_insumos"),
         content=ft.Image(
             "app/assets\Ícone retornar.svg",
             width=20,
@@ -11,10 +11,10 @@ def vendas(page:ft.Page):
         )
     )
 
-    titulo_vendas=ft.Container(
+    titulo_dashboard=ft.Container(
         alignment=ft.alignment.center,
         expand=True,
-        content=ft.Text("VENDAS",size=25)
+        content=ft.Text("FORNECEDORES",size=25)
     )
 
     appbar=ft.Container(
@@ -25,7 +25,7 @@ def vendas(page:ft.Page):
         content=ft.Row(
             [
                 icone_retornar,
-                titulo_vendas
+                titulo_dashboard
             ],
         )
     )

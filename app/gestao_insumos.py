@@ -30,6 +30,46 @@ def g_insumos(page:ft.Page):
         )
     )
 
+    btn_insumos=ft.Container(
+        #define os parâmetros visuais do botão como altura, largura, cor e borda
+        width=310,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        padding=20,
+        on_click=lambda _:page.go("/insumos"),
+        #adiciona uma imagem e um texto dentro do botão
+        content=ft.Row(
+            [
+                ft.Image(""),
+                ft.Text("INSUMOS"),
+            ],
+            #centraliza imagem e texto
+            alignment=ft.MainAxisAlignment.CENTER,
+        )
+    )
+
+    btn_fornecedores=ft.Container(
+        #define os parâmetros visuais do botão como altura, largura, cor e borda
+        width=310,
+        height=100,
+        bgcolor="#2A383E",
+        border=ft.border.all(10,"#222D32"),
+        border_radius=10,
+        padding=20,
+        on_click=lambda _:page.go("/fornecedores"),
+        #adiciona uma imagem e um texto dentro do botão
+        content=ft.Row(
+            [
+                ft.Image(""),
+                ft.Text("FORNECEDORES"),
+            ],
+            #centraliza imagem e texto
+            alignment=ft.MainAxisAlignment.CENTER,
+        )
+    )
+
     ###############################################################################
     ###############################################################################
 
@@ -38,7 +78,11 @@ def g_insumos(page:ft.Page):
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
             col={"xs":12,"sm":6,"md":4},
-            controls=[appbar]
+            controls=[
+                appbar,
+                btn_insumos,
+                btn_fornecedores
+            ]
         )
     )
     

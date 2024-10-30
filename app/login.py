@@ -40,14 +40,14 @@ def login(page: ft.Page):
         senha=input_senha.value 
 
         #parâmetro de requisição da API
-        payload={
+        dados_requisicao={
             "email":email,
             "senha":senha
         }
 
         # Fazer a requisição à API
         try:
-            response=requests.post(f"{API}/auth/login", json=payload)
+            response=requests.post(f"{API}/auth/login", json=dados_requisicao)
             response_data=response.json()
 
             # Verifica se o status da resposta é 200 e se o token foi recebido
@@ -76,7 +76,7 @@ def login(page: ft.Page):
 
     #informações que o usuário escreve no teclado
     input_email=ft.TextField(label="Insira seu E-mail: ")
-    input_senha=ft.TextField(label="Insira sua Senha: ",password=True)
+    input_senha=ft.TextField(label="Insira sua Senha: ",password=True,can_reveal_password=True)
     #inputs do usuario para completar seu cadastro
 
     #ao clicar no botão, ele tenta a autenticação na API

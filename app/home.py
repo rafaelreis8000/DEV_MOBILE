@@ -73,17 +73,17 @@ def home(page:ft.Page):
         )
     )
 
-    btn_vendas=ft.Container(
+    btn_pedidos=ft.Container(
         width=150,
         height=100,
         bgcolor="#2A383E",
         border=ft.border.all(10,"#222D32"),
         border_radius=10,
-        on_click=lambda _:page.go("/vendas"),
+        on_click=lambda _:page.go("/pedidos"),
         content=ft.Column(
             [
                 ft.Image("app/assets\Ícone Financeiro.svg",width=50,height=50,fit=ft.ImageFit.CONTAIN),
-                ft.Text("Vendas",size=10,text_align=ft.TextAlign.CENTER)
+                ft.Text("Pedidos",size=10,text_align=ft.TextAlign.CENTER)
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -160,7 +160,7 @@ def home(page:ft.Page):
                 ft.Container(
                     content=ft.Row(
                         [
-                            btn_vendas,
+                            btn_pedidos,
                             btn_relatorios
                         ],
                         alignment=ft.MainAxisAlignment.CENTER
