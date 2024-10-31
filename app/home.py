@@ -142,7 +142,7 @@ def home(page:ft.Page):
 
                 ft.Container(
                     content=btn_dash,
-                    alignment=ft.alignment.center
+                    alignment=ft.alignment.center #esse alinhamento impede que o botão se estique para as bordas da tela e o mantém corretamente orientado
                 ),
 
                 #container da primeira linha de botões(gestão agrícola e de insumos)

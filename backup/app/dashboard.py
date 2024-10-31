@@ -38,7 +38,9 @@ def dashboard(page:ft.Page):
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
             col={"xs":12,"sm":6,"md":4},
-            controls=[appbar]
+            controls=[
+                appbar
+            ]
         )
     )
 

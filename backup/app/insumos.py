@@ -1,9 +1,9 @@
 import flet as ft
 
-def cultura(page:ft.Page):
+def insumos(page:ft.Page):
 
     icone_retornar=ft.Container(
-        on_click=lambda _:page.go("/g_agricola"),
+        on_click=lambda _:page.go("/g_insumos"),
         content=ft.Image(
             "app/assets\Ícone retornar.svg",
             width=20,
@@ -14,7 +14,7 @@ def cultura(page:ft.Page):
     titulo_dashboard=ft.Container(
         alignment=ft.alignment.center,
         expand=True,
-        content=ft.Text("CULTURA",size=25)
+        content=ft.Text("INSUMOS",size=25)
     )
 
     appbar=ft.Container(
@@ -38,9 +38,7 @@ def cultura(page:ft.Page):
         bgcolor="#1D3331",
         content=ft.ResponsiveRow(
             col={"xs":12,"sm":6,"md":4},
-            controls=[
-                appbar
-            ]
+            controls=[appbar]
         )
     )
 

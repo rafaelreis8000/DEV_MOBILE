@@ -42,7 +42,7 @@ def g_insumos(page:ft.Page):
         #adiciona uma imagem e um texto dentro do botão
         content=ft.Row(
             [
-                ft.Image(""),
+                ft.Image("app/assets\Ícone Insumos.svg"),
                 ft.Text("INSUMOS"),
             ],
             #centraliza imagem e texto
@@ -62,7 +62,7 @@ def g_insumos(page:ft.Page):
         #adiciona uma imagem e um texto dentro do botão
         content=ft.Row(
             [
-                ft.Image(""),
+                ft.Image("app/assets\Ícone Fornecedores.svg"),
                 ft.Text("FORNECEDORES"),
             ],
             #centraliza imagem e texto
@@ -80,8 +80,24 @@ def g_insumos(page:ft.Page):
             col={"xs":12,"sm":6,"md":4},
             controls=[
                 appbar,
-                btn_insumos,
-                btn_fornecedores
+
+                ft.Container(
+                    content=ft.Row(
+                        [
+                            btn_insumos
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    )
+                ),
+
+                ft.Container(
+                    content=ft.Row(
+                        [
+                            btn_fornecedores
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    )
+                )
             ]
         )
     )

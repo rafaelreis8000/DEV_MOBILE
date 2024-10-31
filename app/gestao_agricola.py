@@ -42,7 +42,7 @@ def g_agricola(page:ft.Page):
         #adiciona uma imagem e um texto dentro do botão
         content=ft.Row(
             [
-                ft.Image(""),
+                ft.Image("app/assets\Ícone Cultura.svg"),
                 ft.Text("CULTURA"),
             ],
             #centraliza imagem e texto
@@ -62,8 +62,8 @@ def g_agricola(page:ft.Page):
         #adiciona uma imagem e um texto dentro do botão
         content=ft.Row(
             [
-                ft.Image(""),
-                ft.Text("PLANTIO"),
+                ft.Image("app/assets\Ícone Plantio.svg"),
+                ft.Text("   PLANTIO"),
             ],
             #centraliza imagem e texto
             alignment=ft.MainAxisAlignment.CENTER,
@@ -100,10 +100,32 @@ def g_agricola(page:ft.Page):
             col={"xs":12,"sm":6,"md":4},
             controls=[
                 appbar,
-                btn_cultura,
-                btn_plantio,
-                btn_colheita
-                
+                ft.Container(
+                    content=ft.Row(
+                        [
+                            btn_cultura
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    )
+                ),
+
+                ft.Container(
+                    content=ft.Row(
+                        [
+                            btn_plantio
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    )
+                ),
+
+                ft.Container(
+                    content=ft.Row(
+                        [
+                            btn_colheita
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    )
+                )
             ]
         )
     )
