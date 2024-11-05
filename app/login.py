@@ -83,7 +83,8 @@ def login(page: ft.Page):
     btn_login=ft.Container(
         alignment=ft.alignment.center_right,
         padding=ft.Padding(left=20,right=20,bottom=20,top=0),
-        content=ft.TextButton("LOGIN",on_click=autenticar_usuario),
+        content=ft.TextButton("LOGIN",on_click=lambda e:page.go("/home")),
+        #content=ft.TextButton("LOGIN",on_click=autenticar_usuario),
     )
 
     ###############################################################################
