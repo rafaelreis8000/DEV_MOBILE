@@ -1,45 +1,62 @@
 import flet as ft
 
-def vendas(page:ft.Page):
+from .components.tabela import Tabela
 
-    icone_retornar=ft.Container(
-        on_click=lambda _:page.go("/home"),
-        content=ft.Image(
-            "app/assets\Ícone retornar.svg",
-            width=20,
-            height=20
+class TelaPedidos:
+
+    def __init__(self,page,checar_estado):
+        self.page=page
+        self.checar_estado=checar_estado
+
+    def pedido(self):
+
+        tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Status"], ["pedido_id", "status"], "orders", "order")
+
+        icone_retornar=ft.Container(
+            on_click=lambda _:self.page.go("/home"),
+            content=ft.Image(
+                "app/assets\Ícone retornar.svg",
+                width=20,
+                height=20
+            )
         )
-    )
 
-    titulo_vendas=ft.Container(
-        alignment=ft.alignment.center,
-        expand=True,
-        content=ft.Text("PEDIDOS",size=25)
-    )
-
-    appbar=ft.Container(
-        expand=True,
-        height=50,
-        bgcolor="#2A383E",
-        padding=10,
-        content=ft.Row(
-            [
-                icone_retornar,
-                titulo_vendas
-            ],
+        titulo_dashboard=ft.Container(
+            alignment=ft.alignment.center,
+            expand=True,
+            content=ft.Text("PEDIDOS",size=25)
         )
-    )
 
-    ###############################################################################
-    ###############################################################################
-
-    tela=ft.Container(
-        expand=True,
-        bgcolor="#1D3331",
-        content=ft.ResponsiveRow(
-            col={"xs":12,"sm":6,"md":4},
-            controls=[appbar]
+        appbar=ft.Container(
+            expand=True,
+            height=50,
+            bgcolor="#2A383E",
+            padding=10,
+            content=ft.Row(
+                [
+                    icone_retornar,
+                    titulo_dashboard
+                ],
+            )
         )
-    )
 
-    return tela
+        ###############################################################################
+        ###############################################################################
+
+        tela=ft.Container(
+            expand=True,
+            bgcolor="#1D3331",
+            content=ft.ResponsiveRow(
+                col={"xs":12,"sm":6,"md":4},
+                controls=[
+                    appbar,
+                    ft.Column(
+                        [
+                            tabela
+                        ]
+                    )
+                ]
+            )
+        )
+
+        return tela

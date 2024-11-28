@@ -1,33 +1,41 @@
 import flet as ft
 
-from app.login import login
 from app.home import home
-from app.dashboard import dashboard
 from app.gestao_agricola import g_agricola
 from app.gestao_insumos import g_insumos
-from app.pedidos import vendas
-from app.relatorios import relatorios
-from app.colheita import colheita
-from app.plantio import plantio
-from app.cultura import cultura
-from app.fornecedores import fornecedores
-from app.insumos import insumos
+from app.relatorios import TelaRelatorios
+from app.login import TelaLogin
+from app.cultura import TelaCultura
+from app.plantio import TelaPlantio
+from app.colheita import TelaColheita
+from app.insumos import TelaInsumo
+from app.fornecedores import TelaFornecedor
+from app.pedidos import TelaPedidos
+
+
+
+class ChecarEstado: # essa classe checa o estado do sistema para utilização do token de navegação
+    def __init__(self):
+        self.token=None
+        self.dados_api=None
+        self.role=None
 
 #função que realiza o caminho das telas do sistema
 def registro_rotas(page:ft.Page):
+    checar_estado=ChecarEstado()
+
     def mudar_rota(route):
         #limpa a tela para começar a checar as rotas
         page.views.clear()
 
         #leva para a tela de login
         if page.route=="/":
-            page.views.append(ft.View(route="/",controls=[login(page)]))
+            obj_login=TelaLogin(page,checar_estado)
+            page.views.append(ft.View(route="/",controls=[obj_login.login()]))
+            #page.views.append(ft.View(route="/",controls=[login(page)]))
 
         elif page.route=="/home":
             page.views.append(ft.View(route="/home",controls=[home(page)]))
-        
-        elif page.route=="/dashboard":
-            page.views.append(ft.View(route="/dashboard",controls=[dashboard(page)]))
 
         elif page.route=="/g_agricola":
             page.views.append(ft.View(route="/g_agricola",controls=[g_agricola(page)]))
@@ -36,25 +44,32 @@ def registro_rotas(page:ft.Page):
             page.views.append(ft.View(route="/g_insumos",controls=[g_insumos(page)]))
 
         elif page.route=="/pedidos":
-            page.views.append(ft.View(route="/pedidos",controls=[vendas(page)]))
+            obj_pedido=TelaPedidos(page,checar_estado)
+            page.views.append(ft.View(route="/pedidos",controls=[obj_pedido.pedido()]))
 
         elif page.route=="/relatorios":
-            page.views.append(ft.View(route="/relatorios",controls=[relatorios(page)]))
+            obj_relatorio=TelaRelatorios(page,checar_estado)
+            page.views.append(ft.View(route="/relatorios",controls=[obj_relatorio.relatorios()]))
 
         elif page.route=="/colheita":
-            page.views.append(ft.View(route="/colheita",controls=[colheita(page)]))
+            obj_colheita=TelaColheita(page,checar_estado)
+            page.views.append(ft.View(route="/colheita",controls=[obj_colheita.colheita()]))
 
         elif page.route=="/plantio":
-            page.views.append(ft.View(route="/plantio",controls=[plantio(page)]))
+            obj_plantio=TelaPlantio(page,checar_estado)
+            page.views.append(ft.View(route="/plantio",controls=[obj_plantio.plantio()]))
 
         elif page.route=="/cultura":
-            page.views.append(ft.View(route="/cultura",controls=[cultura(page)]))
+            obj_cultura=TelaCultura(page,checar_estado)
+            page.views.append(ft.View(route="/cultura",controls=[obj_cultura.cultura()]))
 
         elif page.route=="/fornecedores":
-            page.views.append(ft.View(route="/fornecedores",controls=[fornecedores(page)]))
+            obj_fornecedor=TelaFornecedor(page,checar_estado)
+            page.views.append(ft.View(route="/fornecedores",controls=[obj_fornecedor.fornecedor()]))
 
         elif page.route=="/insumos":
-            page.views.append(ft.View(route="/insumos",controls=[insumos(page)]))
+            obj_insumo=TelaInsumo(page,checar_estado)
+            page.views.append(ft.View(route="/insumos",controls=[obj_insumo.insumo()]))
 
         page.update()
 

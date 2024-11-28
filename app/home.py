@@ -18,27 +18,6 @@ def home(page:ft.Page):
     ###############################################################################
     ###############################################################################
 
-    #botão de dashboard. Leva para a página de mesmo nome
-    btn_dash=ft.Container(
-        #define os parâmetros visuais do botão como altura, largura, cor e borda
-        width=310,
-        height=100,
-        bgcolor="#2A383E",
-        border=ft.border.all(10,"#222D32"),
-        border_radius=10,
-        padding=20,
-        on_click=lambda _:page.go("/dashboard"),
-        #adiciona uma imagem e um texto dentro do botão
-        content=ft.Row(
-            [
-                ft.Image("app/assets\Ícone Dashboard.svg"),
-                ft.Text("DASHBOARD"),
-            ],
-            #centraliza imagem e texto
-            alignment=ft.MainAxisAlignment.CENTER,
-        )
-    )
-
     btn_gestao_agricola=ft.Container(
         width=150,
         height=100,
@@ -141,7 +120,6 @@ def home(page:ft.Page):
                 ),
 
                 ft.Container(
-                    content=btn_dash,
                     alignment=ft.alignment.center #esse alinhamento impede que o botão se estique para as bordas da tela e o mantém corretamente orientado
                 ),
 
